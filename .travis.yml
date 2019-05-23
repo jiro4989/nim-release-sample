@@ -46,6 +46,6 @@ deploy:
   api_key: "$GITHUB_OAUTH_TOKEN"
   keep-history: false
   skip_cleanup: true
-  file: dist/*.tar.gz
+  file: dist/nim_release_sample_${TRAVIS_OS_NAME}.tar.gz
   on:
     tags: true
