@@ -27,6 +27,7 @@ install:
 build: off
 
 test_script:
+  - echo %TEST_V%
   - nim -v
   - nimble -v
   - nimble test
