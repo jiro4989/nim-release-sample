@@ -33,6 +33,8 @@ install:
   - SET PATH=%CD%\DIST\%NIM_DIR%\BIN;%CD%\DIST\%MINGW_DIR%\BIN;%CD%\BIN;%PATH%
   - dir
   - dir %CD%\DIST
+  - dir %CD%\DIST\%NIM_DIR%
+  - dir %CD%\DIST\%NIM_DIR%\BIN
   - echo %PATH%
   - IF "%PLATFORM%" == "x64" ( copy C:\OpenSSL-Win64\libeay32.dll %CD%\BIN\libeay64.dll & copy C:\OpenSSL-Win64\libeay32.dll %CD%\BIN\libeay32.dll & copy C:\OpenSSL-Win64\libssl32.dll %CD%\BIN\libssl64.dll & copy C:\OpenSSL-Win64\libssl32.dll %CD%\BIN\libssl32.dll )
     ELSE ( copy C:\OpenSSL-Win32\libeay32.dll %CD%\BIN\libeay32.dll & copy C:\OpenSSL-Win32\libssl32.dll %CD%\BIN\libssl32.dll )
