@@ -30,10 +30,8 @@ build: off
 
 test_script:
   - nimble test
-  - nimble docs
-  - nimble build
 
-before_deploy:
+build_script:
   - nimble docs
   - nimble build
   - mkdir nim_release_sample_windows
