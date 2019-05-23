@@ -46,7 +46,9 @@ deploy:
 - provider: GitHub
   auth_token:
     secure: esSlDbpH2rczLbaAJm5b1tG1KfwaQ6POEICFbpY7oJkW++IrNwJFpz6O5oyoAe/7
-  artifact: /.*\.zip/
+  #artifact: /.*\.zip/
+  artifacts:
+    - path: nim_release_sample_windows.zip
   on:
     branch: master
     appveyor_repo_tag: true 
