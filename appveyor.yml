@@ -43,10 +43,11 @@ after_build:
   - 7z a nim_release_sample_windows.zip nim_release_sample_windows
 
 deploy:
-  - provider: GitHub
-    artifact: nim_release_sample_windows.zip
-    draft: false
-    prerelease: false
+  - provider: Environment
+    name: GitHub Release
+    # artifact: nim_release_sample_windows.zip
+    # draft: false
+    # prerelease: false
     on:
       branch: master
       APPVEYOR_REPO_TAG: true 
