@@ -42,12 +42,15 @@ before_deploy:
   - copy LICENSE nim_release_sample_windows\
   - 7z a nim_release_sample_windows.zip nim_release_sample_windows
 
+artifacts:
+  - path: nim_release_sample_windows.zip
+    name: zip
+
 deploy:
 - provider: GitHub
   auth_token:
     secure: esSlDbpH2rczLbaAJm5b1tG1KfwaQ6POEICFbpY7oJkW++IrNwJFpz6O5oyoAe/7
-  artifacts:
-    - path: nim_release_sample_windows.zip
+  artifacts: zip
   on:
     branch: master
     appveyor_repo_tag: true 
