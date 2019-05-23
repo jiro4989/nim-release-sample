@@ -12,7 +12,7 @@ environment:
   platform: x64
 
 cache:
-    # - '%MINGW_ARCHIVE%'
+    - '%MINGW_ARCHIVE%'
     # - '%OPENBLAS_ARCHIVE%'
     - '%NIM_ARCHIVE%'
 
@@ -24,8 +24,8 @@ install:
   - MKDIR %CD%\DIST
   # - MKDIR %CD%\DIST\PCRE
   # - nuget install pcre -Verbosity quiet -Version 8.33.0.1 -OutputDirectory %CD%\DIST\PCRE
-  # - IF not exist "%MINGW_ARCHIVE%" appveyor DownloadFile "%MINGW_URL%" -FileName "%MINGW_ARCHIVE%"
-  # - 7z x -y "%MINGW_ARCHIVE%" -o"%CD%\DIST"> nul
+  - IF not exist "%MINGW_ARCHIVE%" appveyor DownloadFile "%MINGW_URL%" -FileName "%MINGW_ARCHIVE%"
+  - 7z x -y "%MINGW_ARCHIVE%" -o"%CD%\DIST"> nul
   # - IF not exist "%OPENBLAS_ARCHIVE%" appveyor DownloadFile "%OPENBLAS_URL%" -FileName "%OPENBLAS_ARCHIVE%"
   # - 7z x -y "%OPENBLAS_ARCHIVE%" -o"%CD%\DIST"> nul
   - IF not exist "%NIM_ARCHIVE%" appveyor DownloadFile "%NIM_URL%" -FileName "%NIM_ARCHIVE%"
