@@ -36,6 +36,7 @@ install:
   - IF "%PLATFORM%" == "x64" ( copy %CD%\DIST\PCRE\pcre.redist.8.33.0.1\build\native\bin\v100\x64\Release\dynamic\utf8\pcre8.dll %CD%\bin\pcre64.dll ) ELSE ( copy %CD%\DIST\PCRE\pcre.redist.8.33.0.1\build\native\bin\v100\Win32\Release\dynamic\utf8\pcre8.dll %CD%\bin\pcre32.dll )
 
 build_script:
+  - echo %PATH%
   - nim -v
   - nimble -v
   - nimble test
