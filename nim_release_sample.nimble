@@ -5,6 +5,7 @@ author        = "jiro4989"
 description   = "A new awesome nimble package"
 license       = "MIT"
 srcDir        = "src"
+binDir        = "bin"
 bin           = @["nim_release_sample"]
 
 
