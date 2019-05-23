@@ -35,6 +35,8 @@ test_script:
 build_script:
   - nimble docs
   - nimble build
+
+after_build:
   - mkdir nim_release_sample_windows
   - copy bin\nim_release_sample.exe nim_release_sample_windows\
   - copy README.md nim_release_sample_windows\
@@ -43,10 +45,23 @@ build_script:
 
 # deploy:
 #   - provider: GitHub
-#     #name: GitHub Release
 #     artifact: nim_release_sample_windows.zip
 #     draft: false
 #     prerelease: false
+#     auth_token:
+#       secure: xxxxxxxxxxxxxxxxxxxxxxxxx
 #     on:
 #       branch: master
 #       APPVEYOR_REPO_TAG: true 
+
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: esSlDbpH2rczLbaAJm5b1tG1KfwaQ6POEICFbpY7oJkW++IrNwJFpz6O5oyoAe/7
+  artifact: nim_release_sample_windows.zip
+  draft: false
+  prerelease: false
+  force_update: false
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true 
