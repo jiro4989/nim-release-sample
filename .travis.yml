@@ -29,7 +29,6 @@ before_script:
 
 script:
   - set -e
-  - echo $TEST_V
   - nim -v
   - nimble -v
   - nimble test
