@@ -35,4 +35,11 @@ build_script:
   - nimble docs
   - nimble build
 
+after_build:
+  - mkdir nim_release_sample_windows
+  - copy bin\nim_release_sample.exe nim_release_sample_windows\
+  - copy README.md nim_release_sample_windows\
+  - copy LICENSE nim_release_sample_windows\
+  - 7z a nim_release_sample_windows.zip nim_release_sample_windows
+
 deploy: off
