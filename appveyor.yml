@@ -30,6 +30,8 @@ build: off
 
 test_script:
   - nimble test
+  - nimble docs
+  - nimble build
 
 before_deploy:
   - nimble docs
@@ -39,7 +41,6 @@ before_deploy:
   - copy README.md nim_release_sample_windows\
   - copy LICENSE nim_release_sample_windows\
   - 7z a nim_release_sample_windows.zip nim_release_sample_windows
-  - dir
 
 deploy:
 - provider: GitHub
