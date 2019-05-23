@@ -39,13 +39,13 @@ script:
 before_deploy:
   - mkdir -p dist/nim_release_sample_${TRAVIS_OS_NAME}
   - cp -rf LICENSE README* bin dist/nim_release_sample_${TRAVIS_OS_NAME}/
-  - tar czf dist/nim_release_sample_${TRAVIS_OS_NAME}{.tar.gz,}
+  - tar -C dist -czf nim_release_sample_${TRAVIS_OS_NAME}{.tar.gz,}
 
 deploy:
   provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
   keep-history: false
   skip_cleanup: true
-  file: dist/nim_release_sample_${TRAVIS_OS_NAME}.tar.gz
+  file: nim_release_sample_${TRAVIS_OS_NAME}.tar.gz
   on:
     tags: true
