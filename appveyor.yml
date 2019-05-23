@@ -31,10 +31,6 @@ install:
   - IF not exist "%NIM_ARCHIVE%" appveyor DownloadFile "%NIM_URL%" -FileName "%NIM_ARCHIVE%"
   - 7z x -y "%NIM_ARCHIVE%" -o"%CD%\DIST"> nul
   - SET PATH=%CD%\DIST\%NIM_DIR%\BIN;%CD%\DIST\%MINGW_DIR%\BIN;%CD%\BIN;%PATH%
-  - dir
-  - dir %CD%\DIST
-  - dir %CD%\DIST\%NIM_DIR%
-  - dir %CD%\DIST\%NIM_DIR%\BIN
   - echo %PATH%
   - IF "%PLATFORM%" == "x64" ( copy C:\OpenSSL-Win64\libeay32.dll %CD%\BIN\libeay64.dll & copy C:\OpenSSL-Win64\libeay32.dll %CD%\BIN\libeay32.dll & copy C:\OpenSSL-Win64\libssl32.dll %CD%\BIN\libssl64.dll & copy C:\OpenSSL-Win64\libssl32.dll %CD%\BIN\libssl32.dll )
     ELSE ( copy C:\OpenSSL-Win32\libeay32.dll %CD%\BIN\libeay32.dll & copy C:\OpenSSL-Win32\libssl32.dll %CD%\BIN\libssl32.dll )
@@ -42,13 +38,13 @@ install:
 
 build: off
 
-test_script:
-  - nim -v
-  - nimble -v
-  - nimble test
+# test_script:
+#   - nim -v
+#   - nimble -v
+#   - nimble test
 
-build_script:
-  - nimble docs
-  - nimble build
+# build_script:
+#   - nimble docs
+#   - nimble build
 
 deploy: off
