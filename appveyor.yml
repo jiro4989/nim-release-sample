@@ -6,7 +6,7 @@ environment:
   MINGW_ARCHIVE: x86_64-4.9.2-release-win32-seh-rt_v4-rev4.7z
   OPENBLAS_URL: https://sourceforge.net/projects/openblas/files/v0.3.5/OpenBLAS%200.3.5%20version.zip/download
   OPENBLAS_ARCHIVE: OpenBLAS-0.3.5.zip
-  NIM_DIR: nim-0.19.6_x64
+  NIM_DIR: nim-0.19.6
   NIM_URL: https://nim-lang.org/download/nim-0.19.6_x64.zip
   NIM_ARCHIVE: nim-0.19.6_x64.zip
   platform: x64
