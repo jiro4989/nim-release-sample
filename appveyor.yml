@@ -4,8 +4,6 @@ environment:
   MINGW_DIR: mingw64
   MINGW_URL: https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/4.9.2/threads-win32/seh/x86_64-4.9.2-release-win32-seh-rt_v4-rev4.7z/download
   MINGW_ARCHIVE: x86_64-4.9.2-release-win32-seh-rt_v4-rev4.7z
-  OPENBLAS_URL: https://sourceforge.net/projects/openblas/files/v0.3.5/OpenBLAS%200.3.5%20version.zip/download
-  OPENBLAS_ARCHIVE: OpenBLAS-0.3.5.zip
   NIM_DIR: nim-0.19.6
   NIM_URL: https://nim-lang.org/download/nim-0.19.6_x64.zip
   NIM_ARCHIVE: nim-0.19.6_x64.zip
@@ -13,28 +11,18 @@ environment:
 
 cache:
     - '%MINGW_ARCHIVE%'
-    # - '%OPENBLAS_ARCHIVE%'
     - '%NIM_ARCHIVE%'
 
 matrix:
   fast_finish: true
 
 install:
-  # - ps: Install-Product node 8 # node 8 or later is required to test js async stuff
   - MKDIR %CD%\DIST
-  # - MKDIR %CD%\DIST\PCRE
-  # - nuget install pcre -Verbosity quiet -Version 8.33.0.1 -OutputDirectory %CD%\DIST\PCRE
   - IF not exist "%MINGW_ARCHIVE%" appveyor DownloadFile "%MINGW_URL%" -FileName "%MINGW_ARCHIVE%"
   - 7z x -y "%MINGW_ARCHIVE%" -o"%CD%\DIST"> nul
-  # - IF not exist "%OPENBLAS_ARCHIVE%" appveyor DownloadFile "%OPENBLAS_URL%" -FileName "%OPENBLAS_ARCHIVE%"
-  # - 7z x -y "%OPENBLAS_ARCHIVE%" -o"%CD%\DIST"> nul
   - IF not exist "%NIM_ARCHIVE%" appveyor DownloadFile "%NIM_URL%" -FileName "%NIM_ARCHIVE%"
   - 7z x -y "%NIM_ARCHIVE%" -o"%CD%\DIST"> nul
   - SET PATH=%CD%\DIST\%NIM_DIR%\BIN;%CD%\DIST\%MINGW_DIR%\BIN;%CD%\BIN;%PATH%
-  - echo %PATH%
-  # - IF "%PLATFORM%" == "x64" ( copy C:\OpenSSL-Win64\libeay32.dll %CD%\BIN\libeay64.dll & copy C:\OpenSSL-Win64\libeay32.dll %CD%\BIN\libeay32.dll & copy C:\OpenSSL-Win64\libssl32.dll %CD%\BIN\libssl64.dll & copy C:\OpenSSL-Win64\libssl32.dll %CD%\BIN\libssl32.dll )
-  #   ELSE ( copy C:\OpenSSL-Win32\libeay32.dll %CD%\BIN\libeay32.dll & copy C:\OpenSSL-Win32\libssl32.dll %CD%\BIN\libssl32.dll )
-  # - IF "%PLATFORM%" == "x64" ( copy %CD%\DIST\PCRE\pcre.redist.8.33.0.1\build\native\bin\v100\x64\Release\dynamic\utf8\pcre8.dll %CD%\bin\pcre64.dll ) ELSE ( copy %CD%\DIST\PCRE\pcre.redist.8.33.0.1\build\native\bin\v100\Win32\Release\dynamic\utf8\pcre8.dll %CD%\bin\pcre32.dll )
 
 build: off
 
