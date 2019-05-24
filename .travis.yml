@@ -23,7 +23,7 @@ cache:
 
 before_install:
   - curl https://nim-lang.org/choosenim/init.sh -sSf -o init.sh
-  - if [ ! -e $HOME/.nimble ]; then bash init.sh -y ; fi
+  - bash init.sh -y
 
 before_script:
   - set -e
