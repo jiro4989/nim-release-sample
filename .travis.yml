@@ -17,10 +17,6 @@ addons:
       - libgc-dev
       - libsfml-dev
 
-cache:
-  directories:
-  - $HOME/.nimble
-
 before_install:
   - curl https://nim-lang.org/choosenim/init.sh -sSf -o init.sh
   - bash init.sh -y
