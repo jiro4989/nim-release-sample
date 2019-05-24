@@ -52,3 +52,5 @@ artifacts:
   - path: nim_release_sample_windows.zip
     name: zip
 ```
+
+test
